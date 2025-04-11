@@ -1,4 +1,4 @@
-const WaterTank = require('../models/WaterTank');
+const WaterTank = require('../models/waterTank');
 const logger = require('../utils/logger');
 const handleStatus = require('../utils/handelStatus');
 
