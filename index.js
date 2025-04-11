@@ -41,10 +41,9 @@ app.use('/api/watertank', watertankRoute);
 app.use('/api/system', systemRoute);
 
 
-app.all('*', (req, res, next) => {
-    res.status(404).json({ 
-        status: handelStatus.ERROR, 
-        message: "This resource is not available" 
+app.get('/', (req, res, next) => {
+    res.status(200).json({ 
+        message: "Server run" 
     });
 });
 
