@@ -1,0 +1,6 @@
+POST http://localhost:5001/api/auth/login
+POST http://localhost:5001/api/auth/register
+POST http://localhost:5001/api/auth/forget-password
+POST http://localhost:5001/api/auth/send-otp
+POST http://localhost:5001/api/auth/verify-account
+POST http://localhost:5001/api/auth/logout  (يتطلب توكن صالح)
