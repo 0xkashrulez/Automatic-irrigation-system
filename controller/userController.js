@@ -1,6 +1,7 @@
 const User = require('../models/userModel');
 const logger = require('../utils/logger');
 const handleStatus = require('../utils/handelStatus');
+const Support = require('../models/supportModel');
 
 const getCurrentUser = async (req, res, next) => {
   try {
@@ -46,8 +47,17 @@ const fetchAllUser = async (req, res, next) => {
 
 const sendMessage = async (req, res, next) => {
   try {
-    const { subject, message } = req.body;
-    console.log(`Message from user ${req.currentUser.id}:`, { subject, message });
+    const {subject, message} = req.body;
+
+    const newMessage = new Support({
+      userId: req.currentUser.id,
+      subject,
+      message
+    });
+
+    await newMessage.save();
+
+    console.log(`Message from user ${req.currentUser.id}:, { subject, message }`);
     res.json({ message: 'Message sent successfully' });
   } catch (err) {
     const error = logger.create('Failed to send message', 500, handleStatus.ERROR, err.message);
