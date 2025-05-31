@@ -7,27 +7,27 @@ const systemSchema=mongoose.Schema({
     },
     name:{
         type:String,
-        require:true
+        required:true
     },
     description:{
         type:String,
-        require:true
+        required:true
     },
     amountWater:{
         type:Number,
-        require:true
+        required:true
     },
     IrrigationEvery:{
         type:String,
-        require:true
+        required:true
     },
     duration:{
         type:String,
-        require:true
+        required:true
     },
     type:{
         type:String,
-        require:true
+        required:true
     }
 })
  module.exports=mongoose.model('System',systemSchema);
