@@ -9,6 +9,10 @@ const mongoose = require('mongoose');
 const express = require('express');
 const app = express();
 
+const plantRoutes = require('./Router/plantRoute');
+
+
+
 const  handelStatus  = require('./utils/handelStatus');
 const { error } = require('jsend');
 const url = process.env.MONGO_URL;
@@ -39,6 +43,7 @@ app.use('/api/user', userRouter);
 app.use('/api/auth', authRoute);
 app.use('/api/watertank', watertankRoute);
 app.use('/api/system', systemRoute);
+app.use('/api/plants', plantRoutes);
 
 
 app.get('/', (req, res, next) => {
