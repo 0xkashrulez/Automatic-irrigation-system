@@ -11,11 +11,11 @@ const periodSchema=mongoose.Schema({
     },
     startDate:{
         type:String,
-        require:true
+        required:true
     },
     endDate:{
         type:String,
-        require:true
+        required:true
     }
 })
  module.exports=mongoose.model('Period',periodSchema);

@@ -11,11 +11,11 @@ const plantSchema=mongoose.Schema({
     },
     humidity:{
         type:String,
-        require:true
+        required:true
     },
     status:{
         type:String,
-        require:true
+        required:true
     }
 })
 module.exports = mongoose.model('Plant', plantSchema);

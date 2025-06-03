@@ -4,23 +4,23 @@ const waterSchema = mongoose.Schema({
     userId:{
         type: mongoose.Schema.Types.ObjectId,
         ref:'User',
-        require:true
+        required:true
     },
     nameTank: {
         type: String,
-        require: true,
+        required: true,
     },
     amountTank: {
         type: Number,
-        require: true
+        required: true
     },
     maxTank: {
         type: Number,
-        require: true
+        required: true
     },
     minTank: {
         type: Number,
-        require: true
+        required: true
     }
 })
 module.exports = mongoose.model('WaterTank', waterSchema);
