@@ -1,13 +1,27 @@
 const express = require('express');
 const router = express.Router();
 const verifyToken = require('../middleware/verifyToken');
-const { deleteSystem, editSystem, addSystem, fatchSystem, fatchAllSystems } = require('../controller/systemController');
+const {
+  fetchAllSystems,
+  fetchSystem,
+  addSystem,
+  editSystem,
+  deleteSystem
+} = require('../controller/systemController');
 
-router.get('/system-globle',verifyToken, fatchAllSystems);
-router.get('/:systemId',verifyToken, fatchSystem);
-router.post('/',verifyToken, addSystem);
-router.put('/:systemId',verifyToken, editSystem);
-router.delete('/:systemId',verifyToken, deleteSystem);
+// جلب كل السيستمز
+router.get('/', verifyToken, fetchAllSystems);
 
+// جلب سيستم محدد
+router.get('/:systemId', verifyToken, fetchSystem);
+
+// إضافة سيستم جديد (وبيعمل بلانت مرتبط أوتوماتيكي)
+router.post('/', verifyToken, addSystem);
+
+// تعديل سيستم
+router.put('/:systemId', verifyToken, editSystem);
+
+// حذف سيستم مع نباتاته
+router.delete('/:systemId', verifyToken, deleteSystem);
 
 module.exports = router;
