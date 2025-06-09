@@ -12,7 +12,7 @@ const plantSchema = mongoose.Schema({
     required: true
   },
   humidity: {
-    type: String,
+    type: Number,
     required: true,
     default: '50'  // قيمة ابتدائية لو مش جايه من اليوزر
   },
